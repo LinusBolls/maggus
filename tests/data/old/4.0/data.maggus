@@ -1,0 +1,129 @@
+{
+  "errors": [],
+  "data": {
+    "version": [
+      {
+        "value": "4.0",
+        "props": {}
+      }
+    ],
+    "n": [
+      {
+        "value": "Gump;Forrest;;;",
+        "props": {}
+      }
+    ],
+    "fn": [
+      {
+        "value": "Forrest Gump",
+        "props": {}
+      }
+    ],
+    "org": [
+      {
+        "value": "Bubba Gump Shrimp Co.",
+        "props": {}
+      }
+    ],
+    "title": [
+      {
+        "value": "Shrimp Man",
+        "props": {}
+      }
+    ],
+    "photo": [
+      {
+        "value": "http://www.example.com/dir_photos/my_photo.gif",
+        "props": {
+          "mediatype": [
+            "image/gif"
+          ]
+        }
+      }
+    ],
+    "tel": [
+      {
+        "value": "tel:+11115551212",
+        "props": {
+          "type": [
+            "work",
+            "voice"
+          ],
+          "value": [
+            "uri"
+          ]
+        }
+      },
+      {
+        "value": "tel:+14045551212",
+        "props": {
+          "type": [
+            "home",
+            "voice"
+          ],
+          "value": [
+            "uri"
+          ]
+        }
+      }
+    ],
+    "item1": {
+      "tel": [
+        {
+          "value": "tel:+14045551213",
+          "props": {
+            "type": [
+              "home",
+              "voice"
+            ],
+            "value": [
+              "uri"
+            ]
+          }
+        }
+      ]
+    },
+    "adr": [
+      {
+        "value": ";;100 Waters Edge;Baytown;LA;30314;United States of America",
+        "props": {
+          "type": [
+            "work"
+          ],
+          "label": [
+            "100 waters edge\\nbaytown",
+            " la 30314\\nunited states of america"
+          ]
+        }
+      },
+      {
+        "value": ";;42 Plantation St.;Baytown;LA;30314;United States of America",
+        "props": {
+          "type": [
+            "home"
+          ],
+          "label": [
+            "42 plantation st.\\nbaytown",
+            " la 30314\\nunited states of america"
+          ]
+        }
+      }
+    ],
+    "email": [
+      {
+        "value": "forrestgump@example.com",
+        "props": {}
+      }
+    ],
+    "rev": [
+      {
+        "value": "20080424T195243Z",
+        "props": {}
+      }
+    ]
+  },
+  "meta": {
+    "version": "4.0",
+    "status": "valid"
+  }
+}

@@ -1,0 +1,19 @@
+maggus comma seperated value not being split
+
+jcard splitting note
+
+vcard version differences
+
+2.1
+
+HOME instead of TYPE=HOME
+no linebreaks
+
+4.0
+
+TYPE=home instead of TYPE=HOME
+
+
+The standard Internet media type (MIME type) for a vCard has varied with each version of the specification:[1] 
+
+hCard is a microformat that allows a vCard to be embedded inside an HTML page. It makes use of CSS class names to identify each vCard property. Normal HTML markup and CSS styling can be used alongside the hCard class names without affecting the webpage's ability to be parsed by a hCard parser. h-card is the microformats2 update to hCard.

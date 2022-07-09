@@ -1,0 +1,18 @@
+{
+  "@context": "/contexts/Account",
+  "@id": "/accounts/629b971cca122b822b08c748",
+  "@type": "Account",
+  "id": "629b971cca122b822b08c748",
+  "address": "yf0tqi@knowledgemd.com",
+  "quota": 40000000,
+  "used": 0,
+  "isDisabled": false,
+  "isDeleted": false,
+  "createdAt": "2022-06-04T17:32:12+00:00",
+  "updatedAt": "2022-06-04T17:32:12+00:00",
+  "password": "gqofqs",
+  "token": {
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NTQzNjM5MzMsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6InlmMHRxaUBrbm93bGVkZ2VtZC5jb20iLCJpZCI6IjYyOWI5NzFjY2ExMjJiODIyYjA4Yzc0OCIsIm1lcmN1cmUiOnsic3Vic2NyaWJlIjpbIi9hY2NvdW50cy82MjliOTcxY2NhMTIyYjgyMmIwOGM3NDgiXX19.c1AWyxgpZaedViLBunwrpJNzC6m0HSgCW2MFg7dwcClJEVO1Q4yX-Z7LJf8EjJYnOD23NpE5Oxk5k0wYzWw4hg",
+    "id": "629b971cca122b822b08c748"
+  }
+}

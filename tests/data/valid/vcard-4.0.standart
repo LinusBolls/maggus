@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:4.0
+ADR;TYPE=home:;;123 Main St.;Springfield;IL;12345;USA
+BDAY:19700310
+CATEGORIES:swimmer,biker
+EMAIL:johndoe@hotmail.com
+N:Doe;John;;Dr;
+NOTE:I am proficient in Tiger-Crane Style,\nand I am more than proficient in the exquisite art of the Samurai sword.
+ORG:Google;GMail Team;Spam Detection Squad
+REV:20121201T134211Z
+ROLE:Executive
+SOURCE:http://johndoe.com/vcard.vcf
+TEL;TYPE=cell:(123) 555-5832
+TEL;TYPE=home,voice;VALUE=uri:tel:+14045551212
+item1.TEL;TYPE=home,voice;VALUE=uri:tel:+14045551213
+TITLE:V.P. Research and Development
+URL:http://www.johndoe.com
+END:VCARD

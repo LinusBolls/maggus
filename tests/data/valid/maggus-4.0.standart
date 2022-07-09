@@ -1,0 +1,134 @@
+{
+  "version": [
+    {
+      "value": "4.0",
+      "props": {},
+      "group": null
+    }
+  ],
+  "adr": [
+    {
+      "value": ";;123 Main St.;Springfield;IL;12345;USA",
+      "props": {
+        "type": [
+          "home"
+        ]
+      },
+      "group": null
+    }
+  ],
+  "bday": [
+    {
+      "value": "19700310",
+      "props": {},
+      "group": null
+    }
+  ],
+  "categories": [
+    {
+      "value": "swimmer,biker",
+      "props": {},
+      "group": null
+    }
+  ],
+  "email": [
+    {
+      "value": "johndoe@hotmail.com",
+      "props": {},
+      "group": null
+    }
+  ],
+  "n": [
+    {
+      "value": "Doe;John;;Dr;",
+      "props": {},
+      "group": null
+    }
+  ],
+  "note": [
+    {
+      "value": "I am proficient in Tiger-Crane Style,\\nand I am more than proficient in the exquisite art of the Samurai sword.",
+      "props": {},
+      "group": null
+    }
+  ],
+  "org": [
+    {
+      "value": "Google;GMail Team;Spam Detection Squad",
+      "props": {},
+      "group": null
+    }
+  ],
+  "rev": [
+    {
+      "value": "20121201T134211Z",
+      "props": {},
+      "group": null
+    }
+  ],
+  "role": [
+    {
+      "value": "Executive",
+      "props": {},
+      "group": null
+    }
+  ],
+  "source": [
+    {
+      "value": "http://johndoe.com/vcard.vcf",
+      "props": {},
+      "group": null
+    }
+  ],
+  "tel": [
+    {
+      "value": "(123) 555-5832",
+      "props": {
+        "type": [
+          "cell"
+        ]
+      },
+      "group": null
+    },
+    {
+      "value": "tel:+14045551212",
+      "props": {
+        "type": [
+          "home",
+          "voice"
+        ],
+        "value": [
+          "uri"
+        ]
+      },
+      "group": null
+    },
+    {
+      "value": "tel:+14045551213",
+      "props": {
+        "type": [
+          "home",
+          "voice"
+        ],
+        "value": [
+          "uri"
+        ]
+      },
+      "group": "item1"
+    }
+  ],
+  "title": [
+    {
+      "value": "V.P. Research and Development",
+      "props": {},
+      "group": null
+    }
+  ],
+  "url": [
+    {
+      "value": "http://www.johndoe.com",
+      "props": {},
+      "group": null
+    }
+  ]
+}

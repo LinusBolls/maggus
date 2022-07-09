@@ -1,0 +1,125 @@
+{
+  "errors": [],
+  "data": {
+    "n": [
+      {
+        "value": "Gump;Forrest",
+        "props": {}
+      }
+    ],
+    "fn": [
+      {
+        "value": "Forrest Gump",
+        "props": {}
+      }
+    ],
+    "org": [
+      {
+        "value": "Bubba Gump Shrimp Co.",
+        "props": {}
+      }
+    ],
+    "title": [
+      {
+        "value": "Shrimp Man",
+        "props": {}
+      }
+    ],
+    "photo": [
+      {
+        "value": "http://www.example.com/dir_photos/my_photo.gif",
+        "props": {
+          "type": [
+            "gif"
+          ]
+        }
+      }
+    ],
+    "tel": [
+      {
+        "value": "(111) 555-1212",
+        "props": {
+          "type": [
+            "voice"
+          ]
+        }
+      },
+      {
+        "value": "(404) 555-1212",
+        "props": {
+          "type": [
+            "voice"
+          ]
+        }
+      }
+    ],
+    "adr": [
+      {
+        "value": ";;100 Waters Edge;Baytown;LA;30314;United States of America",
+        "props": {
+          "type": [
+            "work"
+          ]
+        }
+      },
+      {
+        "value": ";;42 Plantation St.;Baytown;LA;30314;United States of America",
+        "props": {
+          "type": [
+            "home"
+          ]
+        }
+      }
+    ],
+    "label": [
+      {
+        "value": "100 Waters Edge=0D=0ABaytown, LA 30314=0D=0AUnited States of America",
+        "props": {
+          "type": [
+            "work"
+          ],
+          "encoding": [
+            "quoted-printable"
+          ]
+        }
+      },
+      {
+        "value": "42 Plantation St.=0D=0ABaytown, LA 30314=0D=0AUnited States of America",
+        "props": {
+          "type": [
+            "home"
+          ],
+          "encoding": [
+            "quoted-printable"
+          ]
+        }
+      }
+    ],
+    "email": [
+      {
+        "value": "forrestgump@example.com",
+        "props": {
+          "type": [
+            "internet"
+          ]
+        }
+      }
+    ],
+    "version": [
+      {
+        "value": "2.1",
+        "props": {}
+      }
+    ],
+    "rev": [
+      {
+        "value": "20080424T195243Z",
+        "props": {}
+      }
+    ]
+  },
+  "meta": {
+    "version": "2.1",
+    "status": "valid"
+  }
+}
