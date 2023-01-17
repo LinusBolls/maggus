@@ -15,7 +15,6 @@ import {
   InvalidParseResult,
   ValidParseResult,
   Maggus,
-  JCardProp,
 } from "./types";
 
 import parseVCard from "./parsing/parseVCard";
@@ -56,6 +55,9 @@ function toMaggus<T extends ParseValue>(
   throw new Error(`toMaggus() received invalid format "${format}"`);
 }
 function toFormatted(maggus: Maggus, format: VcfFormat, version: VcfVersion) {
+  
+  maggus.version[0].value = version
+  
   if (format === "maggus") return unparseMaggus(maggus, version);
   if (format === "vcard") return unparseVCard(maggus, version);
   if (format === "jcard") return unparseJCard(maggus, version);
@@ -68,25 +70,25 @@ const sache: Maggus<"4.0"> = {
   fn: [{ value: "3.0", props: {}, group: null }],
 };
 
-parse("moin", { toFormat: "maggus", toVersion: "4.0" }).data?.fn[0];
-parse("moin", { toFormat: "maggus", toVersion: "2.1" }).data?.n[0];
-parse("moin", { toFormat: "vcard" }).data;
-parse(
-  {
-    version: [{ value: "4.0", props: {}, group: null }],
+// parse("moin", { toFormat: "maggus", toVersion: "4.0" }).data?.fn;
+// parse("moin", { toFormat: "maggus", toVersion: "2.1" }).data?.n[0];
+// parse("moin", { toFormat: "vcard" }).data;
+// parse(
+//   {
+//     version: [{ value: "4.0", props: {}, group: null }],
 
-    n: [{ value: "hi", props: {}, group: null }],
-  },
-  { toFormat: "vcard", toVersion: "3.0" }
-);
-parse("moin", { toFormat: "jcard" }).data?.length;
+//     n: [{ value: "hi", props: {}, group: null }],
+//   },
+//   { toFormat: "vcard", toVersion: "3.0" }
+// );
+// parse("moin", { toFormat: "jcard" }).data?.length;
 
-const lol = parse(["vcard", [["version", {}, "text", "3.0"]]], {
-  toFormat: "maggus",
-  toVersion: "2.1",
-});
+// const lol = parse(["vcard", [["version", {}, "text", "3.0"]]], {
+//   toFormat: "maggus",
+//   toVersion: "2.1",
+// });
 
-if (lol.data != null && lol.data.tel?.length) console.log(lol.data.tel[0]);
+// if (lol.data != null && lol.data.tel?.length) console.log(lol.data.tel[0]);
 
 function parse<T extends ParseValue, F extends VcfFormat, V extends VcfVersion>(
   value: T,
@@ -140,3 +142,4 @@ function parse<T extends ParseValue, F extends VcfFormat, V extends VcfVersion>(
 //   return vcards.map((i: string) => parse(i, options));
 // }
 // export default { parse, parseMultiple };
+export default {parse}

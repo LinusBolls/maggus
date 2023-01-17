@@ -2,17 +2,29 @@
   "version": [
     {
       "value": "3.0",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "adr": [
     {
-      "value": ";;123 Main St.;Springfield;IL;12345;USA",
+      "value": {
+        "postOfficeBox": "",
+        "extendedAddress": "",
+        "street": "123 Main St.",
+        "locality": "Springfield",
+        "region": "IL",
+        "postalCode": "12345",
+        "country": "USA"
+      },
       "props": {
         "type": [
           "home"
-        ]
+        ],
+        "label": "123 Main St.\nSpringfield, IL 12345\nUSA",
+        "value": "text"
       },
       "group": null
     }
@@ -20,63 +32,87 @@
   "bday": [
     {
       "value": "19700310",
-      "props": {},
+      "props": {
+        "value": "timestamp"
+      },
       "group": null
     }
   ],
   "categories": [
     {
       "value": "swimmer,biker",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "email": [
     {
       "value": "johndoe@hotmail.com",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "n": [
     {
-      "value": "Doe;John;;Dr;",
-      "props": {},
+      "value": {
+        "surnames": "Doe",
+        "givenNames": "John",
+        "additionalNames": "",
+        "prefixes": "Dr",
+        "suffixes": ""
+      },
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "note": [
     {
       "value": "I am proficient in Tiger-Crane Style,\\nand I am more than proficient in the exquisite art of the Samurai sword.",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "org": [
     {
       "value": "Google;GMail Team;Spam Detection Squad",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "rev": [
     {
       "value": "20121201T134211Z",
-      "props": {},
+      "props": {
+        "value": "timestamp"
+      },
       "group": null
     }
   ],
   "role": [
     {
       "value": "Executive",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "source": [
     {
       "value": "http://johndoe.com/vcard.vcf",
-      "props": {},
+      "props": {
+        "value": "uri"
+      },
       "group": null
     }
   ],
@@ -86,7 +122,8 @@
       "props": {
         "type": [
           "cell"
-        ]
+        ],
+        "value": "text"
       },
       "group": null
     },
@@ -97,9 +134,7 @@
           "home",
           "voice"
         ],
-        "value": [
-          "uri"
-        ]
+        "value": "uri"
       },
       "group": null
     },
@@ -110,9 +145,7 @@
           "home",
           "voice"
         ],
-        "value": [
-          "uri"
-        ]
+        "value": "uri"
       },
       "group": "item1"
     }
@@ -120,14 +153,18 @@
   "title": [
     {
       "value": "V.P. Research and Development",
-      "props": {},
+      "props": {
+        "value": "text"
+      },
       "group": null
     }
   ],
   "url": [
     {
       "value": "http://www.johndoe.com",
-      "props": {},
+      "props": {
+        "value": "uri"
+      },
       "group": null
     }
   ]

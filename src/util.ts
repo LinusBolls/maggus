@@ -1,4 +1,5 @@
 import { ZodIssue } from "zod";
+import addressFormatter from "@fragaria/address-formatter"
 import {
   VersionZod,
   VcfFormatError,
@@ -8,7 +9,11 @@ import {
   VcfError,
   Maggus,
   ParseStatus,
+  VcfAddress,
+  MaggusAddress,
+  MaggusName,
 } from "./types";
+import { CountQueuingStrategy } from "stream/web";
 
 const capitalDashCase = (str: string) =>
   str.replace(/([A-Z])/g, "-$1").toUpperCase();
@@ -89,6 +94,8 @@ const whitespace = /^[\s\r\n]+|[\s\r\n]+$/g;
 const blankLines = /(\r\n)[\x09\x20]?(\r\n)|$/g;
 const foldedLines = /\r\n[\x20\x09]/g;
 const propsPattern = /^([^;:]+)((?:;(?:[^;:]+))*)(?:\:([\s\S]+))?$/i;
+
+// change to ^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))? in accordance with https://www.rfc-editor.org/rfc/rfc3986#appendix-B
 const uriPattern = /\w+:(\/?\/?)[^\s]+/gm;
 const timestampPattern =
   /^[0-9]{1,4}[-|\/|\.]?[0-9]{1,2}[-|\/|\.]?[0-9]{1,2}[T| ]?[0-9]{1,2}[:]?[0-9]{1,2}[:]?[0-9]{1,2}[Z]?$/;
@@ -110,7 +117,98 @@ const seperateSameValues = <T extends keyof Maggus>(
   [name, values]: [T, Maggus[T]]
 ) => [...prev, ...(values ?? []).map((i) => [name, i])];
 
+const toMaggusName = (n: string | any): MaggusName => {
+
+  if (Array.isArray(n)) {
+    const [
+      surnames,
+      givenNames,
+      additionalNames,
+      prefixes,
+      suffixes
+    ] = n
+
+    return {
+      surnames,
+      givenNames,
+      additionalNames,
+      prefixes,
+      suffixes,
+    }
+  }
+  if (typeof n === "string") return toMaggusName(n.split(";"))
+
+  return n
+}
+
+
+const toMaggusAdr = (adr: string | VcfAddress | MaggusAddress): MaggusAddress => {
+
+  if (Array.isArray(adr)) {
+    const [
+      postOfficeBox,
+      extendedAddress,
+      street,
+      locality,
+      region,
+      postalCode,
+      country
+    ] = adr
+
+    return {
+      postOfficeBox,
+      extendedAddress,
+      street,
+      locality,
+      region,
+      postalCode,
+      country
+    }
+  }
+  if (typeof adr === "string") return toMaggusAdr(adr.split(";") as VcfAddress)
+
+  return adr
+}
+
+const toAddressLabel = (adr: MaggusAddress) => {
+  /* 
+  street
+  locality, region postalCode
+  country
+  */
+ return `${adr.street}\n${adr.locality}, ${adr.region} ${adr.postalCode}\n${adr.country}`
+  const formatted = addressFormatter.format({
+    street: adr.street,
+    locality: adr.locality,
+    region: adr.region,
+    postcode: adr.postalCode,
+    country: adr.country,
+  });
+  return formatted
+}
+
+const toVcfAddressSemicolonStr = (adr: MaggusAddress) => {
+  if (typeof adr === "string") return adr
+
+  return Object.values(adr).join(";")
+}
+const toVcfNameSemicolonStr = (n: MaggusName) => {
+  if (typeof n === "string") return n
+
+  return Object.values(n).join(";")
+}
+
+const toVcfAddressArr = (adr: MaggusAddress) => Object.values(adr) as VcfAddress
+
+const toVcfNameArr = (n: MaggusName) => Object.values(n)
+
 export {
+  toVcfNameSemicolonStr,
+  toVcfNameArr,
+  toMaggusAdr,
+  toAddressLabel,
+  toVcfAddressSemicolonStr,
+  toVcfAddressArr,
   getFormat,
   capitalDashCase,
   trim,
@@ -122,6 +220,7 @@ export {
   toVcfOptionsError,
   getPropertyType,
   seperateSameValues,
+  toMaggusName,
   vcardPattern,
   atLinebreaks,
   whitespace,
@@ -130,3 +229,5 @@ export {
   propsPattern,
   uriPattern,
 };
+
+

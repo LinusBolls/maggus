@@ -9,8 +9,18 @@ import {
   propsPattern,
   whitespace,
   validateVersion,
+  toMaggusAdr,
+  toMaggusName,
 } from "../util";
 import { Line, VcfError, VcfFormatError } from "../types";
+
+const resolveValue = (name: string, value: string): any => {
+
+  if (name === "n") return toMaggusName(value)
+  if (name === "adr") return toMaggusAdr(value)
+
+  return value
+}
 
 function prepareVCard(line: string): Line {
   const match = propsPattern.exec(line);
@@ -40,10 +50,11 @@ function prepareVCard(line: string): Line {
 
   const name = camelCase(property);
 
-  return { name, props, value, group, errors: [] };
+  return { name, props, value: resolveValue(name, value), group, errors: [] };
 }
 
 function parseVCard(value: any): any {
+  
   // InvalidParseResult | ValidParseResult<T>
   let errs: VcfError[] = [];
 
@@ -63,7 +74,7 @@ function parseVCard(value: any): any {
     lineErrors: [],
   });
 
-  const version = data["version"][0].value;
+  const version = data.version?.length ? data.version[0].value : null;
 
   const versionErrs = validateVersion(version);
 

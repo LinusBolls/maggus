@@ -1,0 +1,8 @@
+n ; split
+note should not be split into list in jcard
+
+
+[
+    "I am proficient in Tiger-Crane Style",
+    "\\nand I am more than proficient in the exquisite art of the Samurai sword."
+  ]

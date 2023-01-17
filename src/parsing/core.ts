@@ -31,7 +31,7 @@ const toData =
 
     const result = { value, props, group };
 
-    if (errors) {
+    if (errors?.length) {
       data.lineErrors = [...data.lineErrors, ...errors];
       return data;
     }

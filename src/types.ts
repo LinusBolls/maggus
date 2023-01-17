@@ -1,35 +1,22 @@
 import { z } from "zod";
 
-const jcardValues = [
-  "text",
-  "uri",
-  "date",
-  "time",
-  "date-time",
-  "timestamp",
-  "boolean",
-  "integer",
-  "float",
-  "utc offset",
-  "language-tag",
-];
+type VcfFormat = "maggus" | "vcard" | "jcard";
 
-const supportedFormats: Readonly<[string, ...string[]]> = [
+const supportedFormats: Readonly<[VcfFormat, ...VcfFormat[]]> = [
   "maggus",
   "vcard",
   "jcard",
 ];
-type VcfFormat = "maggus" | "vcard" | "jcard";
 
 type VcfVersion = "2.1" | "3.0" | "4.0";
 
-type ParseStatus = "valid" | "malformed" | "invalid";
-
-const supportedVersions: Readonly<[string, ...string[]]> = [
+const supportedVersions: Readonly<[VcfVersion, ...VcfVersion[]]> = [
   "2.1",
   "3.0",
   "4.0",
 ];
+
+type ParseStatus = "valid" | "malformed" | "invalid";
 
 const VersionZod = z.enum(supportedVersions);
 
@@ -38,16 +25,6 @@ const ParseOptionsZod = z.object({
   toVersion: VersionZod.default("4.0"),
   urlEncode: z.boolean().default(false),
 });
-
-type TupleUnion<U extends string, R extends any[] = []> = {
-  [S in U]: Exclude<U, S> extends never
-    ? [...R, S]
-    : TupleUnion<Exclude<U, S>, [...R, S]>;
-}[U];
-
-type RequiredKeys<T> = {
-  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
-}[keyof T];
 
 type VcfFormatFrom<T extends ParseValue> = T extends JCard
   ? "jcard"
@@ -64,8 +41,6 @@ type ToMaggus<T extends VCard_Schema> = {
 };
 type JCardProp = [string, { [key: string]: any }, string, string | string[]];
 
-Object.keys({ moin: "master" });
-
 type ToJCard<T extends VCard_Schema> = [
   "vcard",
 
@@ -75,9 +50,6 @@ type ToJCard<T extends VCard_Schema> = [
     // ...RequiredKeys<VCard_Schema_V4_0>
   ]
 ];
-
-type Lit = string | number | boolean | undefined | null | void | {};
-const tuple = <T extends Lit[]>(...args: T) => args;
 
 type Maggus<V extends VcfVersion = VcfVersion> = Formats["maggus"][V];
 type VCard<V extends VcfVersion = VcfVersion> = Formats["vcard"][V];
@@ -302,6 +274,30 @@ interface Line {
   errors?: VcfError[];
 }
 
+// https://www.rfc-editor.org/rfc/rfc6350.html#section-6.3
+type VcfAddress = [postOfficeBox: string, extendedAddress: string, street: string, locality: string, region: string, postalCode: string, country: string]
+
+interface MaggusAddress {
+  postOfficeBox: string;
+  extendedAddress: string;
+  street: string;
+  locality: string;
+  region: string;
+  postalCode: string;
+  country: string;
+}
+
+// https://www.rfc-editor.org/rfc/rfc6350.html#section-6.2.2
+type VcfName = [surnames: string, givenNames: string, additionalNames: string, prefixes: string, suffixes: string]
+
+interface MaggusName {
+  surnames: string
+  givenNames: string
+  additionalNames: string
+  prefixes: string
+  suffixes: string
+}
+
 export {
   supportedFormats,
   supportedVersions,
@@ -333,4 +329,8 @@ export type {
   ParseStatus,
   Sache,
   Line,
+  VcfAddress,
+  MaggusAddress,
+  MaggusName
 };
+
